@@ -80,17 +80,11 @@ class _HomePageState extends State<HomePage>
                         SliverList(
                             delegate:
                                 SliverChildBuilderDelegate((context, index) {
-                          return GestureDetector(
-                              onTap: () => {
-                                    // goto Detail page
-                                    // Get.to();
-                                  },
-                              child: ArticleItemLayout(
-                                  item: _articleList[index],
-                                  onCollectTap: () {
-                                    _onCollectClick(_articleList[index]);
-                                  }) // ArticleItemLayout,
-                              );
+                          return ArticleItemLayout(
+                              item: _articleList[index],
+                              onCollectTap: () {
+                                _onCollectClick(_articleList[index]);
+                              });
                         }, childCount: _articleList.length))
                       ],
                     );

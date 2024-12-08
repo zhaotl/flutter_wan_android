@@ -61,83 +61,88 @@ class _ArticleItemLayoutState extends State<ArticleItemLayout> {
         surfaceTintColor: Colors.white,
         elevation: 8,
         color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  if (widget.item.type == 1)
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8),
-                      child: Text('置顶', style: TextStyle(color: Colors.red)),
-                    ),
-                  Container(
-                    padding: widget.item.type == 1
-                        ? const EdgeInsets.only(left: 8)
-                        : const EdgeInsets.only(left: 12),
-                    child: Text(widget.item.author?.isNotEmpty == true
-                        ? widget.item.author!
-                        : widget.item.shareUser ?? ""),
-                  ),
-                  Expanded(
-                      child: Container(
-                          padding: const EdgeInsets.only(right: 8),
-                          alignment: Alignment.centerRight,
-                          child: Text(publishTime)))
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 8, 8),
-                child: Row(
+        child: InkWell(
+          onTap: () {
+            // goto Detail
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
                   children: [
+                    if (widget.item.type == 1)
+                      const Padding(
+                        padding: EdgeInsets.only(left: 8),
+                        child: Text('置顶', style: TextStyle(color: Colors.red)),
+                      ),
+                    Container(
+                      padding: widget.item.type == 1
+                          ? const EdgeInsets.only(left: 8)
+                          : const EdgeInsets.only(left: 12),
+                      child: Text(widget.item.author?.isNotEmpty == true
+                          ? widget.item.author!
+                          : widget.item.shareUser ?? ""),
+                    ),
                     Expanded(
-                        child: Html(
-                      data: widget.item.title,
-                      style: {
-                        "html": Style(
-                            margin: Margins.zero,
-                            maxLines: 2,
-                            textOverflow: TextOverflow.ellipsis,
-                            fontSize: FontSize(14),
-                            padding: HtmlPaddings.zero,
-                            alignment: Alignment.topLeft),
-                        "body": Style(
-                            margin: Margins.zero,
-                            maxLines: 2,
-                            textOverflow: TextOverflow.ellipsis,
-                            fontSize: FontSize(14),
-                            padding: HtmlPaddings.zero,
-                            alignment: Alignment.topLeft)
-                      },
-                    ))
+                        child: Container(
+                            padding: const EdgeInsets.only(right: 8),
+                            alignment: Alignment.centerRight,
+                            child: Text(publishTime)))
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Text(sb.toString()),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 8, 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Html(
+                        data: widget.item.title,
+                        style: {
+                          "html": Style(
+                              margin: Margins.zero,
+                              maxLines: 2,
+                              textOverflow: TextOverflow.ellipsis,
+                              fontSize: FontSize(14),
+                              padding: HtmlPaddings.zero,
+                              alignment: Alignment.topLeft),
+                          "body": Style(
+                              margin: Margins.zero,
+                              maxLines: 2,
+                              textOverflow: TextOverflow.ellipsis,
+                              fontSize: FontSize(14),
+                              padding: HtmlPaddings.zero,
+                              alignment: Alignment.topLeft)
+                        },
+                      ))
+                    ],
                   ),
-                  Expanded(
-                      child: Container(
-                    width: 24,
-                    height: 24,
-                    padding: const EdgeInsets.only(right: 8),
-                    alignment: Alignment.centerRight,
-                    child: Builder(builder: (context) {
-                      return InkWell(
-                        onTap: widget.onCollectTap,
-                        child: Image.asset(widget.item.isCollect
-                            ? 'assets/images/icon_collect.png'
-                            : 'assets/images/icon_uncollect.png'),
-                      );
-                    }),
-                  ))
-                ],
-              )
-            ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text(sb.toString()),
+                    ),
+                    Expanded(
+                        child: Container(
+                      width: 24,
+                      height: 24,
+                      padding: const EdgeInsets.only(right: 8),
+                      alignment: Alignment.centerRight,
+                      child: Builder(builder: (context) {
+                        return InkWell(
+                          onTap: widget.onCollectTap,
+                          child: Image.asset(widget.item.isCollect
+                              ? 'assets/images/icon_collect.png'
+                              : 'assets/images/icon_uncollect.png'),
+                        );
+                      }),
+                    ))
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
