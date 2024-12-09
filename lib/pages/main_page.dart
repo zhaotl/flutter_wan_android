@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/constants/constants.dart';
 import 'package:flutter_wan_android/pages/home_page.dart';
+import 'package:flutter_wan_android/pages/project_page.dart';
 
 class MainPage extends StatefulWidget {
   final String title;
@@ -31,7 +32,7 @@ class _MainPageState extends State<MainPage> {
     // HomePage,
     const HomePage(),
     // ProjectPage,
-    const Center(child: Text("Project")),
+    const ProjectPage(),
     // SquarePage,
     const Center(child: Text("Square")),
     // MinePage

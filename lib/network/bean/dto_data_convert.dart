@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter_wan_android/network/bean/app_response/app_response.dart';
 import 'package:flutter_wan_android/network/bean/articel_data/articel_data.dart';
 import 'package:flutter_wan_android/network/bean/banner/banner.dart';
+import 'package:flutter_wan_android/network/bean/project_list_data/project_list_data.dart';
+import 'package:flutter_wan_android/network/bean/project_tab/project_tab.dart';
 import 'package:flutter_wan_android/network/bean/user_info/user_info.dart';
 import 'package:flutter_wan_android/utils/log_util.dart';
 
@@ -31,6 +33,15 @@ class DtoDataConvert {
                 .map((e) => BannerEntity.fromJson(e as Map<String, dynamic>))
                 .toList());
         return res as T;
+      case const (AppResponse<List<ProjectTab>>):
+        return AppResponse.fromJson(
+            json,
+            (dataJson) => (dataJson as List<dynamic>)
+                .map((e) => ProjectTab.fromJson(e as Map<String, dynamic>))
+                .toList()) as T;
+      case const (AppResponse<ProjectListData>):
+        return AppResponse.fromJson(
+            json, (dataJson) => ProjectListData.fromJson(dataJson)) as T;
       default:
         return AppResponse.fromJson(json, (dataJson) => dataJson) as T;
     }
