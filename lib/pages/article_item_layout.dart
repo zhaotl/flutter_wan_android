@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_wan_android/network/bean/articel_data/article_item.dart';
+import 'package:flutter_wan_android/pages/detail_page.dart';
+import 'package:get/get.dart';
 
 class ArticleItemLayout extends StatefulWidget {
   final ArticleItem item;
@@ -64,6 +66,8 @@ class _ArticleItemLayoutState extends State<ArticleItemLayout> {
         child: InkWell(
           onTap: () {
             // goto Detail
+            Get.to(() => DetailPage(
+                url: widget.item.link!, title: widget.item.title ?? ''));
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),

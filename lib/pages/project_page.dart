@@ -8,7 +8,9 @@ import 'package:flutter_wan_android/network/bean/project_list_data/project_list_
 import 'package:flutter_wan_android/network/bean/project_tab/project_tab.dart';
 import 'package:flutter_wan_android/network/request_util.dart';
 import 'package:flutter_wan_android/pages/base_page.dart';
+import 'package:flutter_wan_android/pages/detail_page.dart';
 import 'package:flutter_wan_android/utils/log_util.dart';
+import 'package:get/get.dart';
 
 class ProjectPage extends StatefulWidget {
   const ProjectPage({super.key});
@@ -131,7 +133,8 @@ class _ProjectListPageState extends State<ProjectListPage>
         clipBehavior: Clip.hardEdge,
         child: InkWell(
           onTap: () {
-            // todo: goto detail
+            Get.to(
+                () => DetailPage(url: entity.link!, title: entity.title ?? ''));
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),

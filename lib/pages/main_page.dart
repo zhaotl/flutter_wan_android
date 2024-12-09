@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/constants/constants.dart';
 import 'package:flutter_wan_android/pages/home_page.dart';
+import 'package:flutter_wan_android/pages/mine_page.dart';
 import 'package:flutter_wan_android/pages/project_page.dart';
+import 'package:flutter_wan_android/pages/square_page.dart';
 
 class MainPage extends StatefulWidget {
   final String title;
@@ -34,9 +36,9 @@ class _MainPageState extends State<MainPage> {
     // ProjectPage,
     const ProjectPage(),
     // SquarePage,
-    const Center(child: Text("Square")),
+    const SquarePage(),
     // MinePage
-    const Center(child: Text("Mine"))
+    const MinePage()
   ];
 
   final _pageController = PageController(initialPage: 0);
@@ -45,7 +47,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.orangeAccent,
         title: Text(_currentTitle, style: const TextStyle(color: Colors.white)),
         actions: <Widget>[
           IconButton(
