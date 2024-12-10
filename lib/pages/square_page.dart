@@ -30,6 +30,7 @@ class _SquarePageState extends State<SquarePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     // 监听user， 当登录状态时， 重新build
     return Consumer<User>(builder: (context, user, child) {
       return FutureBuilder(

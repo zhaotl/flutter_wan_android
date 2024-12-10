@@ -54,6 +54,7 @@ Map<String, dynamic> _$ArticleItemToJson(ArticleItem instance) =>
       'chapterId': instance.chapterId,
       'chapterName': instance.chapterName,
       'collect': instance.collect,
+      'isCollect': instance.isCollect,
       'courseId': instance.courseId,
       'desc': instance.desc,
       'descMd': instance.descMd,

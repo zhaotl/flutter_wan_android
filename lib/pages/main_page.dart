@@ -3,7 +3,9 @@ import 'package:flutter_wan_android/constants/constants.dart';
 import 'package:flutter_wan_android/pages/home_page.dart';
 import 'package:flutter_wan_android/pages/mine_page.dart';
 import 'package:flutter_wan_android/pages/project_page.dart';
+import 'package:flutter_wan_android/pages/search_page.dart';
 import 'package:flutter_wan_android/pages/square_page.dart';
+import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
   final String title;
@@ -54,7 +56,7 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(Icons.search, color: Colors.white),
               tooltip: '搜索',
               onPressed: () {
-                // Get.to(() => SearchPage())
+                Get.to(() => const SearchPage());
               }),
         ],
       ),
