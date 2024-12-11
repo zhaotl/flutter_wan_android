@@ -5,6 +5,7 @@ import 'package:flutter_wan_android/network/api.dart';
 import 'package:flutter_wan_android/network/bean/app_response/app_response.dart';
 import 'package:flutter_wan_android/network/bean/hot_key/hot_key.dart';
 import 'package:flutter_wan_android/network/request_util.dart';
+import 'package:flutter_wan_android/pages/search_result_page.dart';
 import 'package:flutter_wan_android/utils/log_util.dart';
 import 'package:get/get.dart';
 import 'package:mmkv/mmkv.dart';
@@ -76,7 +77,7 @@ class _SearchPageState extends State<SearchPage> {
       _histories.insert(0, content);
     });
     // goto search result page
-    // Get.to(() => SearchResultPage())
+    Get.to(() => SearchResultPage(keyword: content));
   }
 
   _deleteHisotry(int index) {
@@ -153,7 +154,9 @@ class _SearchPageState extends State<SearchPage> {
                     runAlignment: WrapAlignment.center,
                     children: List.generate(hotKeys.length, (index) {
                       return InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _onSearch(hotKeys[index].name!);
+                        },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 4),

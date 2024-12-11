@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/pages/base_page.dart';
+import 'package:flutter_wan_android/pages/login_page.dart';
 import 'package:flutter_wan_android/user.dart';
+import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
 class MinePage extends StatefulWidget {
@@ -30,7 +32,7 @@ class _MinePageState extends State<MinePage>
                 InkWell(
                   onTap: () {
                     if (!User.instance.isLoggedIn()) {
-                      // Get.to(Placeholder());
+                      Get.to(() => const LoginPage());
                     }
                   },
                   child: Container(
