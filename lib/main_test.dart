@@ -13,6 +13,11 @@ import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
+  FlavorConfig(
+      color: Colors.green,
+      name: "Test",
+      location: BannerLocation.bottomStart,
+      variables: {"baseUrl": "https://www.wanandroid.com/"});
   handleError(() async {
     WidgetsFlutterBinding.ensureInitialized();
     final rootDir = await MMKV.initialize();
@@ -31,15 +36,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      builder: FToastBuilder(),
-      debugShowCheckedModeBanner: true,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        useMaterial3: true,
+    return FlavorBanner(
+      child: GetMaterialApp(
+        builder: FToastBuilder(),
+        debugShowCheckedModeBanner: true,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          useMaterial3: true,
+        ),
+        home: const MainPage(title: 'Flutter Demo Home Page'),
       ),
-      home: const MainPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
