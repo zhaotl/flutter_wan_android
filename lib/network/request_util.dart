@@ -85,7 +85,7 @@ class HttpGo {
       Map<String, dynamic> map = json.decode(response.data.toString());
       result = DtoDataConvert.convertWrapper(T, map);
       if (result.errorCode == Constant.invalidateToken) {
-        User().loginOut();
+        User().logout();
       }
     } on DioException catch (e) {
       Wanlog.e('request error -- $e');

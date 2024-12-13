@@ -67,7 +67,7 @@ class User extends ChangeNotifier {
     }
   }
 
-  void loginOut() {
+  void logout() {
     // Todo:
   }
 }

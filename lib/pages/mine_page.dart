@@ -3,6 +3,7 @@ import 'package:flutter_wan_android/pages/base_page.dart';
 import 'package:flutter_wan_android/pages/login_page.dart';
 import 'package:flutter_wan_android/pages/my_collect_page.dart';
 import 'package:flutter_wan_android/pages/my_shared_page.dart';
+import 'package:flutter_wan_android/pages/setting_page.dart';
 import 'package:flutter_wan_android/user.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
@@ -141,7 +142,7 @@ class _MinePageState extends State<MinePage>
                   GestureDetector(
                       behavior: HitTestBehavior.opaque,
                       onTap: () {
-                        // Get.to(() => const SettingPage());
+                        Get.to(() => const SettingPage());
                       },
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
