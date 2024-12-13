@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/pages/base_page.dart';
 import 'package:flutter_wan_android/pages/login_page.dart';
+import 'package:flutter_wan_android/pages/my_collect_page.dart';
+import 'package:flutter_wan_android/pages/my_shared_page.dart';
 import 'package:flutter_wan_android/user.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
@@ -70,7 +72,9 @@ class _MinePageState extends State<MinePage>
                 children: [
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const MyCollectPage());
+                    },
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
                       child: const Row(
@@ -89,7 +93,9 @@ class _MinePageState extends State<MinePage>
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const MySharedPage());
+                    },
                     behavior: HitTestBehavior.opaque,
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),

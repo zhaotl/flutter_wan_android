@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:flutter_wan_android/constants/constants.dart';
 import 'package:flutter_wan_android/network/request_util.dart';
 import 'package:flutter_wan_android/pages/main_page.dart';

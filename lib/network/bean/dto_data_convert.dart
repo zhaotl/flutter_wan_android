@@ -4,6 +4,7 @@ import 'package:flutter_wan_android/network/bean/app_response/app_response.dart'
 import 'package:flutter_wan_android/network/bean/articel_data/articel_data.dart';
 import 'package:flutter_wan_android/network/bean/banner/banner.dart';
 import 'package:flutter_wan_android/network/bean/hot_key/hot_key.dart';
+import 'package:flutter_wan_android/network/bean/my_collect_web/my_collect_web.dart';
 import 'package:flutter_wan_android/network/bean/project_list_data/project_list_data.dart';
 import 'package:flutter_wan_android/network/bean/project_tab/project_tab.dart';
 import 'package:flutter_wan_android/network/bean/user_info/user_info.dart';
@@ -39,6 +40,12 @@ class DtoDataConvert {
             json,
             (dataJson) => (dataJson as List<dynamic>)
                 .map((e) => ProjectTab.fromJson(e as Map<String, dynamic>))
+                .toList()) as T;
+      case const (AppResponse<List<MyCollectWeb>>):
+        return AppResponse.fromJson(
+            json,
+            (dataJson) => (dataJson as List<dynamic>)
+                .map((e) => MyCollectWeb.fromJson(e as Map<String, dynamic>))
                 .toList()) as T;
       case const (AppResponse<ProjectListData>):
         return AppResponse.fromJson(
