@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/network/bean/user_info/user_info.dart';
+import 'package:flutter_wan_android/network/request_util.dart';
 import 'package:flutter_wan_android/utils/log_util.dart';
 import 'package:mmkv/mmkv.dart';
 
@@ -68,6 +69,18 @@ class User extends ChangeNotifier {
   }
 
   void logout() {
-    // Todo:
+    _userInfo = null;
+    HttpGo.instance.cookieJar?.deleteAll();
+    try {
+      MMKV mmkv = MMKV.defaultMMKV();
+      mmkv.encodeString(_userInfoKey, "");
+    } catch (e) {
+      Wanlog.e("logout user info error- $e");
+    }
+
+    notifyListeners();
+    for (var callback in _list) {
+      callback();
+    }
   }
 }

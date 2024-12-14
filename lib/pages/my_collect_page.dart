@@ -1,4 +1,5 @@
 import 'package:easy_refresh/easy_refresh.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wan_android/network/api.dart';
 import 'package:flutter_wan_android/network/bean/app_response/app_response.dart';
@@ -146,7 +147,10 @@ class _CollectListPageState extends State<_CollectListPage>
                         Text(item.name ?? "",
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 16)),
-                        Text(item.link ?? "")
+                        Text.rich(TextSpan(
+                            text: item.link,
+                            style: const TextStyle(color: Colors.blue),
+                            recognizer: TapGestureRecognizer()))
                       ],
                     ),
                   ),
